@@ -10,6 +10,7 @@ resumen: Transcribe audio y video sin internet y separa quién habla en cada mom
 plataforma: Windows 10 / 11 (64 bits)
 stack: [Python, faster-whisper, pyannote.audio, PyTorch, CustomTkinter, python-docx]
 repo: https://github.com/serranicolasp2-sudo/Transcriptor-Local
+incluido_en: omnisuite-studio
 icono: img/proyectos/transcriptor_256.png
 descargas:
   - nombre: Instalador

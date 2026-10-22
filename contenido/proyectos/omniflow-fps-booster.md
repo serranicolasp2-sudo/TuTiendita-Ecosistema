@@ -10,6 +10,13 @@ plataforma: Windows 10 / 11 (64 bits)
 stack: [Python, FFmpeg, CustomTkinter, PyInstaller]
 repo: https://github.com/serranicolasp2-sudo/OmniFlow-FPS-Booster
 incluido_en: omnisuite-studio
+descargas:
+  - nombre: Instalador
+    archivo: OmniFlow.FPS.Booster.Instalador.1.0.exe
+    tamano: 135 MB
+  - nombre: Portable
+    archivo: OmniFlow.FPS.Booster.Portable.zip
+    tamano: 196 MB
 icono: img/proyectos/omniflow_256.png
 datos:
   Destinos: 48, 50, 60 y 120 FPS

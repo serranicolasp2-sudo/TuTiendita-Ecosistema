@@ -28,9 +28,15 @@ def test_botones_de_descarga(client):
     base = "https://github.com/serranicolasp2-sudo/Transcriptor-Local/releases/latest/download/"
     assert base + "Transcriptor_Instalador_1.0.exe" in html and base + "Transcriptor_Portable.zip" in html
     assert "Descargar instalador · 1,7 GB" in html and "Windows protegió su PC" in html
-    # Las apps de video se bajan con OmniSuite, y un servicio no tiene descargas.
+    # Cada app de video tiene su descarga y avisa que también viene en OmniSuite; un servicio no tiene descargas.
+    flow = client.get("/proyectos/omniflow-fps-booster/").content.decode()
+    assert "OmniFlow.FPS.Booster.Instalador.1.0.exe" in flow and "OmniFlow.FPS.Booster.Portable.zip" in flow
+    assert "También viene en" in flow and "Se descarga con" not in flow
+    # OmniSuite: solo el instalador completo (su .zip trae únicamente el hub, sin las apps).
+    suite = client.get("/proyectos/omnisuite-studio/").content.decode()
     assert (
-        "Se descarga con OmniSuite Studio" in client.get("/proyectos/omniflow-fps-booster/").content.decode()
+        "OmniSuite.Studio.Instalador.Completo.1.0.exe" in suite
+        and "OmniSuite.Studio.Portable.zip" not in suite
     )
     assert "releases/latest" not in client.get("/proyectos/tu-cancion/").content.decode()
 

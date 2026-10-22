@@ -28,6 +28,9 @@ Cada hallazgo tiene **evidencia** (archivo:línea), **cómo reproducirlo** y una
 | 10 | ✅ Las resoluciones fijas de OmniBoost encajan con barras negras (**verificado** en un vertical) | `OmniBoost-Studio@1738183` |
 | — | ✅ Se quitó `src/acelerador.py`, que quedó sin uso al unir las dos implementaciones de descargas (y prometía DirectML, que CTranslate2 no soporta) | `Transcriptor-Local@1f2be99`, rama `claude/ecstatic-goodall-v4ato5` |
 
+| — | 🔴 **Nuevo:** `OmniSuite.Studio.Portable.zip` (release v1.0.0, 33 MB) trae **solo el hub** (`OmniSuite Studio.exe` + `_internal`), sin las 4 apps ni sus instaladores, aunque su `LEEME PORTABLE.txt` promete lanzarlas e instalarlas. El sitio no lo ofrece: manda a la portable de cada app. Para arreglarlo: armar el portable con las apps adentro (si pasa de 2 GiB, en `.7z` o en dos partes) o sacarlo de la release | `OmniSuite-Studio` release v1.0.0 |
+| — | 🟡 Los instaladores llevan la versión en el nombre (`…Instalador.1.0.exe`): el botón `/releases/latest/download/…` se rompe cuando salga la 1.1 con otro nombre. Conviene publicarlos sin versión (`OmniBoost.Studio.Instalador.exe`). `validar_contenido --descargas` lo detecta | las 5 releases |
+
 El resto sigue como se describe abajo.
 
 ---

@@ -37,7 +37,8 @@ class Command(BaseCommand):
                 try:
                     with urllib.request.urlopen(pedido, timeout=20) as r:
                         tamano = int((r.headers.get("Content-Range") or "/0").rsplit("/", 1)[1] or 0)
-                    self.stdout.write(f"  OK   {p.slug} · {d.nombre}: {tamano / 2**30:.2f} GB")
+                    legible = f"{tamano / 2**30:.2f} GB" if tamano >= 2**30 else f"{tamano / 2**20:.0f} MB"
+                    self.stdout.write(f"  OK   {p.slug} · {d.nombre}: {legible}")
                 except (urllib.error.URLError, TimeoutError) as e:
                     rotas.append(f"{p.slug} · {d.nombre}: {url} ({e})")
         if rotas:

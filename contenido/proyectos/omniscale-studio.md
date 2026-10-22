@@ -10,6 +10,13 @@ plataforma: Windows 10 / 11 (64 bits)
 stack: [Python, FFmpeg, CustomTkinter, PyInstaller]
 repo: https://github.com/serranicolasp2-sudo/OmniScale-Studio
 incluido_en: omnisuite-studio
+descargas:
+  - nombre: Instalador
+    archivo: OmniScale.Studio.Instalador.1.0.exe
+    tamano: 135 MB
+  - nombre: Portable
+    archivo: OmniScale.Studio.Portable.zip
+    tamano: 196 MB
 icono: img/proyectos/omniscale_256.png
 datos:
   Métodos: Lanczos + CAS, Spline36, Lanczos puro, Anime y Fílmico

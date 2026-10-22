@@ -11,9 +11,13 @@ plataforma: Windows 10 / 11 (64 bits)
 stack: [Python, CustomTkinter, FFmpeg, PyInstaller, Inno Setup]
 repo: https://github.com/serranicolasp2-sudo/OmniSuite-Studio
 icono: img/proyectos/omnisuite_256.png
+descargas:
+  - nombre: Instalador completo
+    archivo: OmniSuite.Studio.Instalador.Completo.1.0.exe
+    tamano: 1,9 GB
 datos:
   Incluye: OmniBoost, OmniFlow, OmniScale y Transcriptor Local
-  Formatos: Instalador .exe y versión portable .zip
+  Formatos: Instalador completo .exe (las 4 apps); cada app tiene además su portable .zip
   Requisitos: 8 GB de RAM (16 recomendados), 6 GB de disco
 ---
 
@@ -43,3 +47,7 @@ Cubre los cuatro cuellos de botella más comunes al producir video para redes:
 ## Por qué offline
 
 Todo el procesamiento pasa en tu computadora: no se sube ningún video, no hay suscripción y no se paga por minuto. Para un creador que trabaja con material de clientes, eso es privacidad y costo fijo.
+
+## Cómo se descarga
+
+El **instalador completo** trae las cuatro herramientas y deja elegir cuáles instalar. Para usar una herramienta sin instalar nada (por ejemplo, desde un pendrive), cada una tiene su **versión portable** en su ficha: [OmniBoost](/proyectos/omniboost-studio/), [OmniFlow](/proyectos/omniflow-fps-booster/), [OmniScale](/proyectos/omniscale-studio/) y [Transcriptor Local](/proyectos/transcriptor-local/).

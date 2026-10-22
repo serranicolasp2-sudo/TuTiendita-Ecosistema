@@ -10,6 +10,13 @@ plataforma: Windows 10 / 11 (64 bits)
 stack: [Python, FFmpeg, CustomTkinter, PyInstaller]
 repo: https://github.com/serranicolasp2-sudo/OmniBoost-Studio
 incluido_en: omnisuite-studio
+descargas:
+  - nombre: Instalador
+    archivo: OmniBoost.Studio.Instalador.1.0.exe
+    tamano: 135 MB
+  - nombre: Portable
+    archivo: OmniBoost.Studio.Portable.zip
+    tamano: 196 MB
 icono: img/proyectos/omniboost_256.png
 datos:
   Filtros: CAS, hqdn3d, gradfun y unsharp
