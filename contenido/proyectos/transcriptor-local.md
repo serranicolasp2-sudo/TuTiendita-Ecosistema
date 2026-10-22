@@ -13,6 +13,7 @@ repo: https://github.com/serranicolasp2-sudo/Transcriptor-Local
 icono: img/proyectos/transcriptor_256.png
 datos:
   Modelo de voz: Whisper large-v3-turbo (faster-whisper, int8)
+  Descargables desde la app: Whisper small, Whisper large-v3 y aceleración NVIDIA
   Hablantes: hasta 4, con pyannote
   Exporta: .srt, .docx, .txt y .json
 ---
@@ -33,6 +34,16 @@ El pipeline tiene cuatro pasos:
 4. **Ensamble**: cruza las dos líneas de tiempo y le asigna un hablante a cada frase.
 
 El modelo de Whisper se carga una sola vez por proceso y queda protegido con un lock. Así la interfaz no se congela ni lo carga dos veces si apretás el botón de nuevo.
+
+## Modelos y placa de video, a elección
+
+La versión estándar trae **large-v3-turbo para CPU** y funciona sin nada más. Desde la pestaña Configuración se descarga, con un clic y una barra de progreso:
+
+- **Whisper small** (486 MB), más rápido, para equipos con poca RAM;
+- **Whisper large-v3** (3,1 GB), para máxima precisión;
+- **Aceleración NVIDIA** (568 MB), para transcribir con una GeForce GTX 16xx o RTX.
+
+Los archivos salen de Hugging Face y del paquete oficial de NVIDIA en PyPI, y se verifican antes de instalarse; si se corta internet, la descarga sigue desde donde quedó. Si la placa falla, la transcripción sigue sola con la CPU.
 
 ## Lo que entrega
 

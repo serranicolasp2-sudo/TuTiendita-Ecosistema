@@ -141,6 +141,8 @@ Con enlaces `tienda -> TuTiendita-Tienda` y `produccion -> TuTiendita-Produccion
 
 ## 🟠 4. Transcriptor: datos de hardware fijos en la pestaña Configuración
 
+> ✅ **Resuelto** en `Transcriptor-Local`, rama `claude/ecstatic-goodall-v4ato5` (commit `c873d44`): la pestaña muestra el hardware detectado, y la referencia quedó rotulada como "Referencia medida". También se corrigió el `"backend": "CPU (AMD Ryzen)"` fijo en el `.json` de salida.
+
 **Evidencia.**
 
 ```python
@@ -159,6 +161,8 @@ Cualquier usuario ve el procesador y la RAM de la PC de desarrollo como si fuera
 ---
 
 ## 🟠 5. Transcriptor: el README promete GPU y el código usa solo CPU
+
+> ✅ **Resuelto** en el mismo commit `c873d44`, con la decisión de Nicolás: la versión estándar sigue en CPU y la **aceleración NVIDIA se descarga desde la app** (solo cuBLAS, 568 MB, porque CTranslate2 ≥ 4.6.3 ya no usa cuDNN). Con la placa se usa float16 y, si falla, vuelve a la CPU. Ver `Transcriptor-Local/TRASPASO DESCARGAS Y ACELERACION.md`.
 
 **Afirmación.** `Transcriptor-Local/LEEME.md:89` dice que la pestaña Configuración "muestra si el pipeline se está ejecutando sobre GPU NVIDIA (CUDA con soporte FP16)". `OmniSuite-Studio/LEEME.md:77` habla de "GPU NVIDIA CUDA (FP16) o CPU". El README también recomienda una placa NVIDIA porque "acelera notablemente".
 
