@@ -1,0 +1,105 @@
+{
+  "sitio_oficial": "https://tutiendita-ia.store",
+  "marca": "Tu Tiendita IA",
+  "titular": "Nicolás Serrano",
+  "contacto_whatsapp": "+5491100000000",
+  "productos": {
+    "software_escritorio": [
+      {
+        "id": "omnisuite-studio",
+        "nombre": "OmniSuite Studio",
+        "version": "1.0",
+        "categoria": "Suite Todo-en-Uno",
+        "subtitulo": "Hub y centro de control multiapp para creadores de contenido y editores",
+        "descripcion": "Lanzador e instalador todo-en-uno que agrupa OmniBoost, OmniFlow, OmniScale y Transcriptor Local con interfaz interactiva y tema Tu Tiendita IA.",
+        "repo": "https://github.com/serranicolasp2-sudo/OmniSuite-Studio",
+        "offline": true,
+        "plataforma": "Windows 10 / 11",
+        "formatos": ["Instalador .exe (Inno Setup)", "Portable .zip"]
+      },
+      {
+        "id": "omniboost-studio",
+        "nombre": "OmniBoost Studio",
+        "version": "1.0",
+        "categoria": "Optimización y Compresión de Video",
+        "subtitulo": "Compresión inteligente sin pérdida de calidad para YouTube, TikTok y archivo",
+        "descripcion": "Herramienta de compresión basada en FFmpeg con presets profesionales listos para creadores.",
+        "repo": "https://github.com/serranicolasp2-sudo/OmniBoost-Studio",
+        "offline": true,
+        "plataforma": "Windows 10 / 11"
+      },
+      {
+        "id": "omniflow-fps-booster",
+        "nombre": "OmniFlow FPS Booster",
+        "version": "1.0",
+        "categoria": "Interpolación de Fotogramas",
+        "subtitulo": "Convierte videos de 24/30 FPS a 60 FPS ultra fluidos",
+        "descripcion": "Interpolador de movimiento avanzado mediante vectores de movimiento y filtros Minterpolate de FFmpeg.",
+        "repo": "https://github.com/serranicolasp2-sudo/OmniFlow-FPS-Booster",
+        "offline": true,
+        "plataforma": "Windows 10 / 11"
+      },
+      {
+        "id": "omniscale-studio",
+        "nombre": "OmniScale Studio",
+        "version": "1.0",
+        "categoria": "Super-Resolución & Upscaler",
+        "subtitulo": "Escalado inteligente de video a 1080p y 4K",
+        "descripcion": "Mejora la resolución de metrajes antiguos o grabaciones de baja calidad manteniendo la nitidez.",
+        "repo": "https://github.com/serranicolasp2-sudo/OmniScale-Studio",
+        "offline": true,
+        "plataforma": "Windows 10 / 11"
+      },
+      {
+        "id": "transcriptor-local",
+        "nombre": "Transcriptor Local",
+        "version": "1.0",
+        "categoria": "Transcripción y Diarización Offline",
+        "subtitulo": "De voz a texto con Whisper y separación de hablantes sin internet",
+        "descripcion": "Aplicación de escritorio con CustomTkinter, Whisper y Pyannote. Privacidad 100% garantizada, sin costo por minuto.",
+        "repo": "https://github.com/serranicolasp2-sudo/Transcriptor-Local",
+        "offline": true,
+        "plataforma": "Windows 10 / 11"
+      }
+    ],
+    "servicios_ia": [
+      {
+        "id": "tu-cancion",
+        "nombre": "Tu Canción",
+        "dominio": "tucancion.com.ar",
+        "subtitulo": "Canciones personalizadas a medida para regalar",
+        "descripcion": "Composición de letras emotivas con IA y generación musical en estilos variados (balada, cumbia, rock, bolero).",
+        "repos": [
+          "https://github.com/serranicolasp2-sudo/TuTiendita-Tienda",
+          "https://github.com/serranicolasp2-sudo/TuTiendita-Web"
+        ]
+      },
+      {
+        "id": "restauracion-fotos",
+        "nombre": "Restauración de Fotos Antiguas",
+        "dominio": "restauraciondefotos.com.ar",
+        "subtitulo": "Recuperación y coloreado de fotos familiares históricas",
+        "descripcion": "Procesamiento con IA y super-resolución Real-ESRGAN x4 a 300 DPI con opciones de cuadro físico ecocuero o madera.",
+        "repos": [
+          "https://github.com/serranicolasp2-sudo/TuTiendita-Produccion",
+          "https://github.com/serranicolasp2-sudo/TuTiendita-Web"
+        ]
+      }
+    ],
+    "desarrollo_institucional": [
+      {
+        "id": "cfp401-portal",
+        "nombre": "Portal Institucional CFP N° 401 Avellaneda",
+        "web": "https://cfp401avellaneda.com.ar",
+        "subtitulo": "Sitio web oficial, CMS y generador de flyers",
+        "repo": "https://github.com/serranicolasp2-sudo/CFP-401-Avellaneda"
+      },
+      {
+        "id": "campus-virtual-semi",
+        "nombre": "Campus Virtual Semipresencial (no Moodle)",
+        "subtitulo": "Aula virtual a medida en Django para educación de adultos",
+        "repo": "https://github.com/serranicolasp2-sudo/Campus-Virtual-Semi"
+      }
+    ]
+  }
+}
