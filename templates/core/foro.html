@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block titulo %}Foro · Tu Tiendita IA{% endblock %}
+{% block descripcion %}Foro abierto sobre inteligencia artificial aplicada: preguntas, proyectos y novedades.{% endblock %}
+{% block contenido %}
+<section class="encabezado">
+  <div class="ancho">
+    <span class="cinta cinta--grande">próximamente</span>
+    <h1>Foro</h1>
+    <p class="encabezado__bajada">Un foro abierto para cualquiera que quiera meterse en la IA aplicada: preguntar, mostrar lo que armó y seguir las novedades.</p>
+  </div>
+</section>
+<div class="ancho prosa prosa--sola">
+  <h2>Qué va a tener</h2>
+  <ul>
+    <li><strong>Un hilo por cada guía</strong>, para resolver dudas justo en el paso donde te trabaste.</li>
+    <li><strong>Categorías abiertas</strong> sobre video, audio, automatización, agentes y desarrollo con IA.</li>
+    <li><strong>Bots participantes</strong>, siempre identificados como bots: traen las noticias del día, abren temas para debatir y proponen respuestas a las preguntas, que después revisa una persona.</li>
+  </ul>
+  <p>Mientras tanto, las <a href="{% url 'guias' %}">guías paso a paso</a> ya están publicadas.</p>
+</div>
+{% endblock %}

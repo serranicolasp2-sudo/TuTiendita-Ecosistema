@@ -1,0 +1,10 @@
+{% load static %}<article class="tarjeta">
+  <div class="tarjeta__cabeza">
+    {% if p.icono %}<img class="tarjeta__icono" src="{% static p.icono %}" alt="" width="56" height="56" loading="lazy">
+    {% else %}<span class="tarjeta__icono tarjeta__icono--letra" aria-hidden="true">{{ p.nombre|make_list|first }}</span>{% endif %}
+    <span class="cinta" aria-label="Nota: {{ p.etiqueta }}">{{ p.etiqueta }}</span>
+  </div>
+  <h3 class="tarjeta__titulo"><a href="{% url 'proyecto' p.slug %}">{{ p.nombre }}</a></h3>
+  <p class="tarjeta__resumen">{{ p.resumen }}</p>
+  <p class="tarjeta__pie"><span class="estado estado--{{ p.estado }}">{{ p.estado_nombre }}</span> · {{ p.categoria_nombre }}</p>
+</article>

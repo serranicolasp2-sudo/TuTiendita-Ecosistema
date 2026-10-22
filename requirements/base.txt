@@ -1,0 +1,8 @@
+# Dependencias de runtime. Versiones EXACTAS (mismo criterio que Campus-Virtual-Semi).
+# Django 5.2 LTS: soporte hasta abril de 2028 y corre en el Python 3.10 del VPS (Ubuntu 22.04).
+Django==5.2.17
+django-environ==0.14.0
+django-csp==4.0
+Markdown==3.11.2
+PyYAML==6.0.3
+Pygments==2.21.0

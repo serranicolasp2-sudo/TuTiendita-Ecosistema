@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block titulo %}Campus · Tu Tiendita IA{% endblock %}
+{% block descripcion %}Cursos en video, guiados y con seguimiento personalizado sobre IA aplicada.{% endblock %}
+{% block contenido %}
+<section class="encabezado">
+  <div class="ancho">
+    <span class="cinta cinta--grande">próximamente</span>
+    <h1>Campus</h1>
+    <p class="encabezado__bajada">Cursos para llevar estos proyectos a tu propio trabajo, con video, práctica guiada y alguien que te acompañe.</p>
+  </div>
+</section>
+<div class="ancho prosa prosa--sola">
+  <h2>Guías y cursos: la diferencia</h2>
+  <div class="tabla">
+    <table>
+      <thead><tr><th></th><th>Guías del sitio</th><th>Cursos del campus</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Precio</th><td>Gratis</td><td>Pago</td></tr>
+        <tr><th scope="row">Formato</th><td>Texto con código y comandos</td><td>Video, ejercicios y proyecto final</td></tr>
+        <tr><th scope="row">Recorrido</th><td>Un proyecto por guía</td><td>De cero a un resultado, en orden</td></tr>
+        <tr><th scope="row">Acompañamiento</th><td>El foro, entre todos</td><td>Seguimiento personalizado y corrección</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Los primeros cursos van a salir de los proyectos que ya están andando. Mientras tanto, empezá por las <a href="{% url 'guias' %}">guías</a>.</p>
+</div>
+{% endblock %}

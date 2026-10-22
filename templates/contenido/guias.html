@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block titulo %}Guías paso a paso · Tu Tiendita IA{% endblock %}
+{% block descripcion %}Cómo se construyen los proyectos de Tu Tiendita IA, explicado para que los puedas replicar. Gratis.{% endblock %}
+{% block contenido %}
+<section class="encabezado">
+  <div class="ancho">
+    <h1>Guías paso a paso</h1>
+    <p class="encabezado__bajada">Cómo armé cada proyecto, con el código y los comandos reales. Gratis y para replicar: si te trabás en algún paso, el foro está para eso.</p>
+  </div>
+</section>
+<section class="seccion">
+  <div class="ancho">
+    {% if guias %}
+    <ul class="lista-guias">
+      {% for g, proyecto in guias %}{% include "contenido/_fila_guia.html" %}{% endfor %}
+    </ul>
+    {% else %}
+    <p>Todavía no hay guías publicadas. La primera sale pronto.</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

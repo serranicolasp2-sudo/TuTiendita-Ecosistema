@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block titulo %}Sobre mí · Tu Tiendita IA{% endblock %}
+{% block contenido %}
+<section class="encabezado">
+  <div class="ancho">
+    <h1>Sobre mí</h1>
+    <p class="encabezado__bajada">Soy {{ titular }}. Armo herramientas con inteligencia artificial para problemas concretos y cuento cómo las hago.</p>
+  </div>
+</section>
+<div class="ancho ficha">
+  <aside class="ficha__datos">
+    <span class="cinta">hecho en Avellaneda</span>
+    <dl>
+      <dt>Proyectos</dt><dd>{{ proyectos|length }}</dd>
+      {% if contacto.github %}<dt>Código</dt><dd><a href="{{ contacto.github }}" rel="noopener">GitHub</a></dd>{% endif %}
+    </dl>
+  </aside>
+  <div class="prosa">
+    <h2>Qué hago</h2>
+    <p>Tu Tiendita IA reúne tres líneas de trabajo:</p>
+    <ul>
+      <li><strong>Software para creadores:</strong> apps de escritorio que mejoran, escalan, interpolan y transcriben video y audio sin internet ni suscripciones.</li>
+      <li><strong>Servicios con IA:</strong> canciones personalizadas y restauración de fotos familiares, con un circuito de producción automatizado de punta a punta.</li>
+      <li><strong>Desarrollo a medida:</strong> sistemas para instituciones, como el portal del CFP N° 401 y un campus virtual propio para el secundario de adultos.</li>
+    </ul>
+    <h2>Cómo trabajo</h2>
+    <p>Construyo junto con agentes de IA (Claude Code, Codex y Antigravity): yo defino el problema, las reglas y los criterios de aceptación; los agentes escriben código, otro agente lo revisa y los tests deciden. Esa forma de trabajar es la que enseño en las guías y en el campus.</p>
+    <h2>Por qué publico el paso a paso</h2>
+    <p>Porque la mejor forma de aprender IA aplicada es ver proyectos reales por dentro, con sus decisiones y sus errores. Las guías son gratis. Si querés ir más rápido y con acompañamiento, para eso va a estar el campus.</p>
+  </div>
+</div>
+{% endblock %}

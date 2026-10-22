@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block titulo %}{{ guia.titulo }} · Tu Tiendita IA{% endblock %}
+{% block descripcion %}{{ guia.resumen }}{% endblock %}
+{% block og_titulo %}{{ guia.titulo }}{% endblock %}
+{% block og_descripcion %}{{ guia.resumen }}{% endblock %}
+{% block og_tipo %}article{% endblock %}
+{% block contenido %}
+<article>
+  <header class="encabezado">
+    <div class="ancho">
+      <p class="miga"><a href="{% url 'guias' %}">Guías</a> / <a href="{% url 'proyecto' proyecto.slug %}">{{ proyecto.nombre }}</a></p>
+      <h1>{{ guia.titulo }}</h1>
+      <p class="encabezado__bajada">{{ guia.resumen }}</p>
+      <p class="guia-meta">
+        <span class="cinta">{{ guia.nivel_nombre|lower }}</span>
+        {{ guia.minutos_lectura }} min de lectura{% if guia.duracion %} · {{ guia.duracion }} de práctica{% endif %} ·
+        <time datetime="{{ guia.fecha|date:'Y-m-d' }}">{{ guia.fecha|date:"j \d\e F \d\e Y" }}</time>{% if guia.actualizada %} · actualizada el <time datetime="{{ guia.actualizada|date:'Y-m-d' }}">{{ guia.actualizada|date:"j/n/Y" }}</time>{% endif %}
+      </p>
+    </div>
+  </header>
+
+  <div class="ancho ficha">
+    <aside class="ficha__datos">
+      {% if guia.requisitos %}
+      <h2 class="ficha__titulo">Antes de empezar</h2>
+      <ul class="requisitos">{% for r in guia.requisitos %}<li>{{ r }}</li>{% endfor %}</ul>
+      {% endif %}
+      {% if guia.toc %}
+      <nav aria-label="En esta guía">
+        <h2 class="ficha__titulo">En esta guía</h2>
+        <ol class="indice">{% for h in guia.toc %}<li><a href="#{{ h.id }}">{{ h.name }}</a></li>{% endfor %}</ol>
+      </nav>
+      {% endif %}
+    </aside>
+    <div class="prosa">
+      {{ guia.html|safe }}
+      <section class="cierre">
+        <h2>¿Te trabaste en algún paso?</h2>
+        <p>Pronto vas a poder preguntar en el <a href="{% url 'foro' %}">foro</a>.{% if proyecto.repo %} Mientras tanto, mirá el <a href="{{ proyecto.repo }}" rel="noopener">código del proyecto</a>.{% endif %}</p>
+      </section>
+      {% if otras %}
+      <section class="relacionadas">
+        <h2>Más guías de {{ proyecto.nombre }}</h2>
+        <ul class="lista-guias">{% for g in otras %}{% include "contenido/_fila_guia.html" with proyecto=None %}{% endfor %}</ul>
+      </section>
+      {% endif %}
+    </div>
+  </div>
+</article>
+{% endblock %}

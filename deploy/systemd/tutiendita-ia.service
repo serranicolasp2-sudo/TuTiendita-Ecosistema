@@ -1,0 +1,24 @@
+[Unit]
+Description=tutiendita-ia.store (Django + Gunicorn)
+After=network.target
+
+[Service]
+User=tutiendita
+Group=tutiendita
+WorkingDirectory=/srv/tutiendita-ia/actual
+EnvironmentFile=/etc/tutiendita-ia/env
+RuntimeDirectory=tutiendita-ia
+ExecStart=/srv/tutiendita-ia/venv/bin/gunicorn -c deploy/gunicorn.conf.py config.wsgi:application
+ExecReload=/bin/kill -s HUP $MAINPID
+Restart=on-failure
+RestartSec=5
+# Endurecimiento
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/run/tutiendita-ia /var/lib/tutiendita-ia
+CapabilityBoundingSet=
+
+[Install]
+WantedBy=multi-user.target

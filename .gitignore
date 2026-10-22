@@ -24,3 +24,9 @@ Desktop.ini
 # Temporary
 *.tmp
 *.bak
+
+# Django
+staticfiles/
+db.sqlite3
+.pytest_cache/
+.ruff_cache/
