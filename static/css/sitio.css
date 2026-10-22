@@ -208,3 +208,10 @@ code { font-family: var(--f-mono); font-size: .9em; background: var(--superficie
   *, *::before, *::after { transition: none !important; }
   .tarjeta:hover { transform: none; }
 }
+
+/* ── Trayectoria (Sobre mí): fecha en columna propia ───────── */
+.prosa .trayectoria { list-style: none; padding: 0; }
+.prosa .trayectoria li { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 12px; padding: 10px 0; margin: 0; border-bottom: 1px solid var(--linea); }
+.prosa .trayectoria li::marker { content: none; }
+.trayectoria__fecha { color: var(--plata); font-size: .9rem; font-variant-numeric: tabular-nums; padding-top: 2px; }
+@media (max-width: 520px) { .prosa .trayectoria li { grid-template-columns: minmax(0, 1fr); gap: 2px; } }

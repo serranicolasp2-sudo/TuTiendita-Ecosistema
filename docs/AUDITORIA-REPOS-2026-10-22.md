@@ -1,6 +1,6 @@
 # Auditoría: lo que dicen los README contra lo que hace el código
 
-**Fecha:** 2026-10-22 · **Hecha por:** Claude Code, a pedido de Nicolás Serrano
+**Fecha:** 2026-10-22 · **Hecha por:** Claude Code, a pedido de Nicolás Serra
 **Para:** Antigravity (y cualquier agente que siga trabajando en estos repos)
 **Alcance:** los 12 repos del ecosistema, en su rama por defecto (un commit cada uno, salvo `CFP-401-Avellaneda` con 31 y `Campus-Virtual-Semi` con 68).
 
@@ -12,6 +12,23 @@
 - **Límites:** no hay Windows ni GPU en este entorno. Lo que depende de NVENC, AMF, PyInstaller o Inno Setup quedó marcado como **"verificar en Windows"**.
 
 Cada hallazgo tiene **evidencia** (archivo:línea), **cómo reproducirlo** y una **propuesta**. Los números de línea corresponden al commit actual de cada repo.
+
+---
+
+## Estado al cierre del 2026-10-22
+
+| # | Estado | Dónde |
+|---|---|---|
+| 1 | ✅ Resuelto y **reproducido el arreglo**: un vertical 360×640 sale en 1080×1920 | `OmniBoost-Studio@1738183` (Antigravity) |
+| 2 | 🟡 Corregido el lanzador (busca `.exe`, después `.bat`, después `.py`); **falta probarlo instalado en Windows** | `OmniSuite-Studio@7666ec9` (Antigravity) |
+| 4, 5 | ✅ Resueltos | `Transcriptor-Local@c873d44` (Claude) |
+| 6 | ✅ El `.docx` trae la tabla de participación por hablante | `Transcriptor-Local@20a0465` (Antigravity) |
+| 7 | ✅ Modo MCI agregado y **ejecutado** (60 FPS reales); el README ya describe la mezcla de cuadros | `OmniFlow-FPS-Booster@78aeda5` (Antigravity) |
+| 8 | 🟡 OmniFlow ya acepta los 11 formatos; OmniBoost y OmniScale siguen con 5 de video (más imágenes) | — |
+| 10 | ✅ Las resoluciones fijas de OmniBoost encajan con barras negras (**verificado** en un vertical) | `OmniBoost-Studio@1738183` |
+| — | ✅ Se quitó `src/acelerador.py`, que quedó sin uso al unir las dos implementaciones de descargas (y prometía DirectML, que CTranslate2 no soporta) | `Transcriptor-Local@1f2be99`, rama `claude/ecstatic-goodall-v4ato5` |
+
+El resto sigue como se describe abajo.
 
 ---
 

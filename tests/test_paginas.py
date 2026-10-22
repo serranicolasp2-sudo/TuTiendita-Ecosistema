@@ -23,10 +23,25 @@ def test_todas_las_fichas_y_guias_responden(client):
         assert g.titulo in r.content.decode()
 
 
-def test_el_software_de_escritorio_enlaza_a_github_releases(client):
-    html = client.get("/proyectos/omnisuite-studio/").content.decode()
-    assert "https://github.com/serranicolasp2-sudo/OmniSuite-Studio/releases/latest" in html
-    assert "/releases/latest" not in client.get("/proyectos/tu-cancion/").content.decode()
+def test_botones_de_descarga(client):
+    html = client.get("/proyectos/transcriptor-local/").content.decode()
+    base = "https://github.com/serranicolasp2-sudo/Transcriptor-Local/releases/latest/download/"
+    assert base + "Transcriptor_Instalador_1.0.exe" in html and base + "Transcriptor_Portable.zip" in html
+    assert "Descargar instalador · 1,7 GB" in html and "Windows protegió su PC" in html
+    # Las apps de video se bajan con OmniSuite, y un servicio no tiene descargas.
+    assert (
+        "Se descarga con OmniSuite Studio" in client.get("/proyectos/omniflow-fps-booster/").content.decode()
+    )
+    assert "releases/latest" not in client.get("/proyectos/tu-cancion/").content.decode()
+
+
+def test_instagram_de_las_marcas_y_personal(client):
+    assert "https://instagram.com/tucancion.com.ar" in client.get("/proyectos/tu-cancion/").content.decode()
+    assert (
+        "https://instagram.com/restauraciondefotos"
+        in client.get("/proyectos/restauracion-de-fotos/").content.decode()
+    )
+    assert "@_nicochapu" in client.get("/sobre-mi/").content.decode()
 
 
 def test_inexistentes_dan_404(client):
@@ -65,3 +80,13 @@ def test_comando_validar_contenido(capsys):
 def test_favicon_ico_redirige_al_svg(client):
     r = client.get("/favicon.ico")
     assert r.status_code == 301 and r["Location"].endswith("img/favicon.svg")
+
+
+def test_ninguna_pagina_publica_datos_personales_del_cv(client):
+    """El CV trae DNI, fecha de nacimiento, dirección y teléfonos: nada de eso va al sitio."""
+    sensibles = ["35.630.975", "35630975", "24/01/1991", "Debenedetti", "6691", "3077-3769", "5870-1082"]
+    urls = ["/", "/sobre-mi/", "/proyectos/", "/guias/", "/foro/", "/campus/"]
+    urls += [f"/proyectos/{p.slug}/" for p in contenido().proyectos]
+    for url in urls:
+        html = client.get(url).content.decode()
+        assert not [s for s in sensibles if s in html], url

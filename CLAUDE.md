@@ -1,7 +1,7 @@
 # CLAUDE.md — Contexto Maestro del Ecosistema Tu Tiendita IA
 
 > **Sitio Web Oficial en Construcción:** [tutiendita-ia.store](https://tutiendita-ia.store)  
-> **Titular & Creador:** Nicolás Serrano (`serranicolasp2-sudo`)  
+> **Titular & Creador:** Nicolás Serra (`serranicolasp2-sudo`)  
 > **Propósito de este archivo:** Proveer a Claude (en la nube, Claude Code y Claude Projects) el contexto integral de toda la cartera de proyectos, aplicaciones de escritorio, plataformas web, bots e identidad de marca para construir el sitio oficial y portfolio comercial de **Tu Tiendita IA**.
 
 ---
@@ -60,7 +60,7 @@ Aplicaciones de escritorio para Windows, 100% offline, empaquetadas en instalado
 - **[OmniBoost Studio](https://github.com/serranicolasp2-sudo/OmniBoost-Studio)**: Optimizador y compresor de video inteligente mediante FFmpeg (presets para YouTube, Reels/TikTok, compresión sin pérdida perceptual).
 - **[OmniFlow FPS Booster](https://github.com/serranicolasp2-sudo/OmniFlow-FPS-Booster)**: Multiplicador de fluidez a 60 / 120 FPS mediante interpolación temporal adaptativa con detección de cortes de plano y método de estimación vectorial opcional.
 - **[OmniScale Studio](https://github.com/serranicolasp2-sudo/OmniScale-Studio)**: Escalador inteligente de video a 1080p y 4K con filtros avanzados de nitidez y preservación de detalles.
-- **[Transcriptor Local](https://github.com/serranicolasp2-sudo/Transcriptor-Local)**: Transcriptor de audio/video y diarización de hablantes completamente offline con Whisper + Pyannote, arquitectura CPU INT8 universal y módulos opcionales descargables para GPU (CUDA y DirectML).
+- **[Transcriptor Local](https://github.com/serranicolasp2-sudo/Transcriptor-Local)**: Transcriptor de audio/video y diarización de hablantes completamente offline con Whisper + Pyannote, versión estándar en CPU INT8 y descargas opcionales desde la app: modelos Whisper small y large-v3 y aceleración NVIDIA (cuBLAS / CUDA 12). Placas AMD: en evaluación (CTranslate2 ROCm todavía inestable); DirectML no aplica, CTranslate2 no lo soporta.
 
 ### 2. E-Commerce, Bots & Servicios con IA (RegalosIA)
 Plataforma comercial y operativa de personalización con IA:

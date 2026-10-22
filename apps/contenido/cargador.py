@@ -46,6 +46,13 @@ class ContenidoInvalido(Exception):
 
 
 @dataclass(frozen=True)
+class Descarga:
+    nombre: str  # "Instalador", "Portable"…
+    url: str
+    tamano: str = ""  # como se muestra: "1,7 GB"
+
+
+@dataclass(frozen=True)
 class Proyecto:
     slug: str
     nombre: str
@@ -62,8 +69,11 @@ class Proyecto:
     plataforma: str = ""
     repo: str = ""
     web: str = ""
+    instagram: str = ""  # usuario sin @
     icono: str = ""
     datos: tuple[tuple[str, str], ...] = ()
+    descargas: tuple[Descarga, ...] = ()
+    incluido_en: str = ""  # slug del proyecto con el que se descarga (las apps que vienen en OmniSuite)
 
     @property
     def categoria_nombre(self) -> str:
@@ -72,13 +82,6 @@ class Proyecto:
     @property
     def estado_nombre(self) -> str:
         return ESTADOS[self.estado]
-
-    @property
-    def descarga(self) -> str:
-        """Las apps de escritorio se descargan desde GitHub Releases (instalador .exe y portable .zip)."""
-        if self.categoria == "escritorio" and self.repo:
-            return f"{self.repo}/releases/latest"
-        return ""
 
 
 @dataclass(frozen=True)
@@ -156,6 +159,23 @@ def _elegir(meta: dict, ruta: Path, campo: str, opciones: dict) -> str:
     return valor
 
 
+def _descargas(meta: dict, ruta: Path) -> tuple[Descarga, ...]:
+    """Un archivo de GitHub Releases ("archivo": nombre del asset, se baja de la última release) o una URL propia."""
+    descargas = []
+    for d in meta.get("descargas") or ():
+        if not isinstance(d, dict) or not d.get("nombre") or not d.get("archivo"):
+            raise ContenidoInvalido(f"{ruta.name}: cada descarga necesita 'nombre' y 'archivo'")
+        archivo = str(d["archivo"])
+        if archivo.startswith(("https://", "/")):
+            url = archivo
+        elif meta.get("repo"):
+            url = f"{meta['repo']}/releases/latest/download/{archivo}"
+        else:
+            raise ContenidoInvalido(f"{ruta.name}: la descarga '{archivo}' necesita 'repo' (o una URL completa)")
+        descargas.append(Descarga(str(d["nombre"]), url, str(d.get("tamano", ""))))
+    return tuple(descargas)
+
+
 def _proyecto(ruta: Path) -> Proyecto:
     meta, cuerpo = _leer(ruta)
     _exigir(meta, ruta, "nombre", "resumen", "etiqueta", "stack")
@@ -176,8 +196,11 @@ def _proyecto(ruta: Path) -> Proyecto:
         plataforma=meta.get("plataforma", ""),
         repo=meta.get("repo", ""),
         web=meta.get("web", ""),
+        instagram=str(meta.get("instagram", "")).lstrip("@"),
         icono=meta.get("icono", ""),
         datos=tuple((str(k), str(v)) for k, v in (meta.get("datos") or {}).items()),
+        descargas=_descargas(meta, ruta),
+        incluido_en=meta.get("incluido_en", ""),
     )
 
 
@@ -216,6 +239,9 @@ def leer_contenido(base: Path) -> Contenido:
         key=lambda p: (p.orden, p.nombre),
     )
     slugs = {p.slug for p in proyectos}
+    for p in proyectos:
+        if p.incluido_en and p.incluido_en not in slugs:
+            raise ContenidoInvalido(f"{p.slug}.md: 'incluido_en' apunta a '{p.incluido_en}', que no existe")
     guias = sorted(
         (_guia(r, slugs) for r in sorted((base / "guias").glob("*.md"))),
         key=lambda g: (g.fecha, g.slug),

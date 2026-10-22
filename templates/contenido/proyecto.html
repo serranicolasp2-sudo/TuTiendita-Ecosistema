@@ -13,11 +13,17 @@
         <h1>{{ proyecto.nombre }}</h1>
         <p class="encabezado__bajada">{{ proyecto.resumen }}</p>
         <div class="acciones">
-          {% if proyecto.descarga %}<a class="boton" href="{{ proyecto.descarga }}" rel="noopener">Descargar para Windows</a>{% endif %}
+          {% for d in proyecto.descargas %}<a class="boton{% if not forloop.first %} boton--borde{% endif %}" href="{{ d.url }}" rel="noopener">Descargar {{ d.nombre|lower }}{% if d.tamano %} · {{ d.tamano }}{% endif %}</a>{% endfor %}
+          {% if incluido_en %}<a class="boton" href="{% url 'proyecto' incluido_en.slug %}">Se descarga con {{ incluido_en.nombre }}</a>{% endif %}
           {% if proyecto.web %}<a class="boton" href="{{ proyecto.web }}" rel="noopener">Visitar {{ proyecto.web|cut:"https://" }}</a>{% endif %}
+          {% if proyecto.instagram %}<a class="boton boton--borde" href="https://instagram.com/{{ proyecto.instagram }}" rel="noopener">Instagram @{{ proyecto.instagram }}</a>{% endif %}
           {% if proyecto.repo %}<a class="boton boton--borde" href="{{ proyecto.repo }}" rel="noopener">Ver el código</a>{% endif %}
         </div>
-        {% if proyecto.descarga %}<p class="nota">Instalador <code>.exe</code> o versión portable <code>.zip</code>, sin permisos de administrador. Desde GitHub Releases.</p>{% endif %}
+        {% if proyecto.descargas %}
+        <p class="nota">Para {{ proyecto.plataforma|default:"Windows 10 / 11" }}. El instalador crea los accesos directos; la versión portable se descomprime y se usa sin instalar nada. Como todavía no tiene firma digital, Windows puede mostrar «Windows protegió su PC»: tocá «Más información» y «Ejecutar de todas formas».</p>
+        {% elif proyecto.categoria == "escritorio" and not incluido_en %}
+        <p class="nota">La descarga se publica en estos días.</p>
+        {% endif %}
       </div>
       {% if proyecto.icono %}<img class="encabezado__icono" src="{% static proyecto.icono %}" alt="" width="128" height="128">{% endif %}
     </div>

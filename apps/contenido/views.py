@@ -15,7 +15,8 @@ def proyecto(request, slug):
     p = c.proyecto(slug)
     if p is None:
         raise Http404("No existe ese proyecto")
-    return render(request, "contenido/proyecto.html", {"proyecto": p, "guias": c.guias_de(slug)})
+    contexto = {"proyecto": p, "guias": c.guias_de(slug), "incluido_en": c.proyecto(p.incluido_en)}
+    return render(request, "contenido/proyecto.html", contexto)
 
 
 def guias(request):

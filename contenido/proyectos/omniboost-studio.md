@@ -9,6 +9,7 @@ resumen: Mejora la nitidez, limpia el ruido y saca las bandas de color de tus vi
 plataforma: Windows 10 / 11 (64 bits)
 stack: [Python, FFmpeg, CustomTkinter, PyInstaller]
 repo: https://github.com/serranicolasp2-sudo/OmniBoost-Studio
+incluido_en: omnisuite-studio
 icono: img/proyectos/omniboost_256.png
 datos:
   Filtros: CAS, hqdn3d, gradfun y unsharp
@@ -36,5 +37,7 @@ Cada **preset** (Universal, Cine, 3D/CGI, Anime, Videos de IA, Restauración y P
 ## Detalles que suman
 
 - **Detecta la orientación**: los modos "Auto-Adaptativo" llevan un video horizontal a 1920×1080 y uno vertical a 1080×1920, sin recortar ni estirar.
+- **Las resoluciones fijas no deforman**: si elegís 1080p, 2K o 4K y el video tiene otra proporción (por ejemplo, un vertical), lo encaja con barras negras en vez de estirarlo.
+- **También mejora imágenes** (`.png`, `.jpg`, `.webp`) con los mismos filtros.
 - **Procesamiento por lote**: le pasás una carpeta, con o sin subcarpetas, y sigue con el próximo archivo aunque uno esté dañado.
 - **Nunca pisa el original**: guarda con el sufijo `_boosted.mp4`.

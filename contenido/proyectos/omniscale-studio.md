@@ -9,6 +9,7 @@ resumen: Escala videos a 1080p, 2K o 4K, horizontales o verticales, cuidando los
 plataforma: Windows 10 / 11 (64 bits)
 stack: [Python, FFmpeg, CustomTkinter, PyInstaller]
 repo: https://github.com/serranicolasp2-sudo/OmniScale-Studio
+incluido_en: omnisuite-studio
 icono: img/proyectos/omniscale_256.png
 datos:
   Métodos: Lanczos + CAS, Spline36, Lanczos puro, Anime y Fílmico

@@ -80,6 +80,8 @@ ffmpeg -i entrada.mp4 -vf "minterpolate=fps=60:mi_mode=mci:mc_mode=aobmc:me_mode
 - `me_mode=bidir`: busca el movimiento hacia adelante y hacia atrás.
 - `mc_mode=aobmc` y `vsbmc=1`: suavizan los bordes de los bloques para que no se note la cuadrícula.
 
+En OmniFlow es el método **Estimación de Movimiento Vectorial (MCI)**, con estos mismos parámetros.
+
 !!! warning "Es lento y a veces deforma"
     En la prueba de esta guía, un clip de **3 segundos** en 720p tardó **40 segundos** en CPU: unas 13 veces su duración. Además, con movimientos complejos (manos, pelo, agua) puede dejar zonas "derretidas". Probalo en un fragmento corto antes de procesar un video entero.
 
@@ -132,4 +134,4 @@ Los resultados quedan en una subcarpeta aparte, así nunca se pisan los original
 
 ## Para seguir
 
-[OmniFlow FPS Booster](/proyectos/omniflow-fps-booster/) hace todo esto con una interfaz: elegís el método y el destino (48, 50, 60 o 120 FPS), procesa carpetas enteras y, si la placa de video falla, sigue solo con la CPU.
+[OmniFlow FPS Booster](/proyectos/omniflow-fps-booster/) hace todo esto con una interfaz: elegís uno de los cinco métodos y el destino (48, 50, 60 o 120 FPS), procesa carpetas enteras y, si la placa de video falla, sigue solo con la CPU.

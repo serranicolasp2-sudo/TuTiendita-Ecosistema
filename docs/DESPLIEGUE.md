@@ -109,6 +109,16 @@ journalctl -u tutiendita-ia -n 50             # sin errores
 
 Abrí el sitio desde el celular con datos móviles (no con el wifi de casa) para confirmar que se ve desde afuera.
 
+### Si el dominio muestra otro sitio o da 404
+
+| Síntoma | Causa | Solución |
+|---|---|---|
+| El navegador avisa que el certificado es de **campuscfp401avellaneda.com.ar** | Nginx no tiene un bloque para `tutiendita-ia.store` y responde con el primero que encuentra | Pasos 5 y 6 |
+| `http://tutiendita-ia.store` da **404** en lugar de redirigir a https | Mismo motivo | Pasos 5 y 6 |
+| **502 Bad Gateway** | Nginx está bien, pero Gunicorn no corre | `sudo systemctl status tutiendita-ia` y `journalctl -u tutiendita-ia -n 50` |
+
+Para confirmar que Nginx tiene cargado el sitio: `sudo nginx -T 2>/dev/null | grep -n "server_name tutiendita-ia.store"`. Tiene que aparecer dos veces (la de http y la de https).
+
 ---
 
 ## Publicar una versión nueva
@@ -116,6 +126,8 @@ Abrí el sitio desde el celular con datos móviles (no con el wifi de casa) para
 1. Subí los cambios a `main` (contenido nuevo, guías, código).
 2. Creá el tag de la versión (`v0.1.1`, `v0.2.0`…).
 3. En el VPS: `sudo -u tutiendita /srv/tutiendita-ia/actual/deploy/deploy.sh v0.1.1`
+
+Si cambiaron las descargas, antes de crear el tag corré `python manage.py validar_contenido --descargas`: comprueba que cada botón lleve a un archivo que existe.
 
 **Para volver atrás:** `sudo -u tutiendita /srv/tutiendita-ia/actual/deploy/deploy.sh --rollback`
 

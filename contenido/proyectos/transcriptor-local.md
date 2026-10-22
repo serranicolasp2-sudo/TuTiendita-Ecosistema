@@ -11,6 +11,13 @@ plataforma: Windows 10 / 11 (64 bits)
 stack: [Python, faster-whisper, pyannote.audio, PyTorch, CustomTkinter, python-docx]
 repo: https://github.com/serranicolasp2-sudo/Transcriptor-Local
 icono: img/proyectos/transcriptor_256.png
+descargas:
+  - nombre: Instalador
+    archivo: Transcriptor_Instalador_1.0.exe
+    tamano: 1,7 GB
+  - nombre: Portable
+    archivo: Transcriptor_Portable.zip
+    tamano: 2,0 GB
 datos:
   Modelo de voz: Whisper large-v3-turbo (faster-whisper, int8)
   Descargables desde la app: Whisper small, Whisper large-v3 y aceleración NVIDIA
@@ -48,7 +55,7 @@ Los archivos salen de Hugging Face y del paquete oficial de NVIDIA en PyPI, y se
 ## Lo que entrega
 
 - **.SRT** listo para Premiere, DaVinci, CapCut o YouTube.
-- **.DOCX** con la transcripción agrupada por intervención: quién habla, desde qué minuto y qué dijo.
+- **.DOCX** con una tabla de cuánto habló cada participante (tiempo, porcentaje e intervenciones) y la transcripción agrupada por intervención: quién habla, desde qué minuto y qué dijo.
 - **.TXT** limpio para copiar y pegar.
 - **.JSON** con todos los tiempos y textos: es el archivo del proyecto, y lo podés reabrir en el visor.
 

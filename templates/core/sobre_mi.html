@@ -1,30 +1,66 @@
 {% extends "base.html" %}
 {% block titulo %}Sobre mí · Tu Tiendita IA{% endblock %}
+{% block descripcion %}Nicolás Serra: docente de alfabetización digital desde 2017, técnico en sistemas y diseñador. Construye herramientas con IA y enseña cómo hacerlas.{% endblock %}
 {% block contenido %}
 <section class="encabezado">
   <div class="ancho">
     <h1>Sobre mí</h1>
-    <p class="encabezado__bajada">Soy {{ titular }}. Armo herramientas con inteligencia artificial para problemas concretos y cuento cómo las hago.</p>
+    <p class="encabezado__bajada">Soy {{ titular }}. Doy clases de alfabetización digital desde 2017, reparo y armo computadoras desde 2009 y hoy construyo herramientas con inteligencia artificial para problemas concretos. Acá cuento cómo las hago.</p>
   </div>
 </section>
 <div class="ancho ficha">
   <aside class="ficha__datos">
     <span class="cinta">hecho en Avellaneda</span>
     <dl>
+      <dt>Docente</dt><dd>Desde 2017</dd>
+      <dt>Técnico</dt><dd>Desde 2009</dd>
       <dt>Proyectos</dt><dd>{{ proyectos|length }}</dd>
+      {% if contacto.instagram %}<dt>Instagram</dt><dd><a href="https://instagram.com/{{ contacto.instagram }}" rel="noopener">@{{ contacto.instagram }}</a></dd>{% endif %}
       {% if contacto.github %}<dt>Código</dt><dd><a href="{{ contacto.github }}" rel="noopener">GitHub</a></dd>{% endif %}
     </dl>
   </aside>
   <div class="prosa">
+    <h2>De dónde vengo</h2>
+    <p>Mi trabajo tiene dos patas que se cruzan todo el tiempo: <strong>enseñar</strong> y <strong>hacer andar la tecnología</strong>.</p>
+    <p>Como docente, trabajo con jóvenes y adultos que muchas veces se acercan por primera vez a una computadora: formación básica, plataformas, herramientas digitales. Ahí aprendí a explicar sin dar nada por sabido, que es lo que intento hacer en cada guía de este sitio.</p>
+    <p>Como técnico, pasé por el soporte a empresas, el armado y la reparación de equipos, las redes y la instalación eléctrica. Y como diseñador, por la identidad visual, las piezas para redes y el contenido audiovisual. Los proyectos de Tu Tiendita IA salen de esa mezcla.</p>
+    <p>Los sistemas del <a href="{% url 'proyecto' 'cfp401-portal' %}">CFP N.º 401</a> y el <a href="{% url 'proyecto' 'campus-virtual-semi' %}">Campus Virtual</a> nacieron de trabajar en esa comunidad educativa: conozco de adentro lo que necesitan los docentes y los alumnos.</p>
+
     <h2>Qué hago</h2>
-    <p>Tu Tiendita IA reúne tres líneas de trabajo:</p>
     <ul>
       <li><strong>Software para creadores:</strong> apps de escritorio que mejoran, escalan, interpolan y transcriben video y audio sin internet ni suscripciones.</li>
       <li><strong>Servicios con IA:</strong> canciones personalizadas y restauración de fotos familiares, con un circuito de producción automatizado de punta a punta.</li>
-      <li><strong>Desarrollo a medida:</strong> sistemas para instituciones, como el portal del CFP N° 401 y un campus virtual propio para el secundario de adultos.</li>
+      <li><strong>Desarrollo a medida:</strong> sistemas para instituciones, como el portal del CFP N.º 401 y un campus virtual propio para el secundario de adultos.</li>
     </ul>
+
     <h2>Cómo trabajo</h2>
     <p>Construyo junto con agentes de IA (Claude Code, Codex y Antigravity): yo defino el problema, las reglas y los criterios de aceptación; los agentes escriben código, otro agente lo revisa y los tests deciden. Esa forma de trabajar es la que enseño en las guías y en el campus.</p>
+
+    <h2>Trayectoria</h2>
+    <h3>Docencia</h3>
+    <ul class="trayectoria">
+      <li><span class="trayectoria__fecha">2017 – hoy</span><div><strong>Maestro de Ciclo Complementario</strong>, Escuela Primaria de Adultos N.º 704, articulando con la E.E.P. JAyAM N.º 704. Alfabetización digital y proyectos con docentes de grado.</div></li>
+      <li><span class="trayectoria__fecha">2017 – 2025</span><div><strong>Maestro de Ciclo y alfabetizador</strong>, CFP N.º 401 Avellaneda. Alfabetización digital en formación profesional e inclusión educativa.</div></li>
+      <li><span class="trayectoria__fecha">2021 – 2023</span><div><strong>Profesor particular de informática</strong> (Superprof). Clases virtuales de herramientas digitales.</div></li>
+      <li><span class="trayectoria__fecha">2016 – 2020</span><div><strong>Instructor de salsa cubana</strong>. Clases grupales en espacios culturales, clubes y eventos.</div></li>
+    </ul>
+    <h3>Tecnología y diseño</h3>
+    <ul class="trayectoria">
+      <li><span class="trayectoria__fecha">2021 – 2024</span><div><strong>Diseñador gráfico y audiovisual</strong>, Manana Group SRL. Piezas para redes, eventos y contenido institucional.</div></li>
+      <li><span class="trayectoria__fecha">2018 – 2022</span><div><strong>Técnico en sistemas</strong>, Net Made Solutions. Soporte informático para empresas.</div></li>
+      <li><span class="trayectoria__fecha">2018 – hoy</span><div><strong>Branding y diseño gráfico</strong>, independiente. Identidad visual y contenido digital para emprendedores.</div></li>
+      <li><span class="trayectoria__fecha">2009 – hoy</span><div><strong>Ventas y servicio técnico de PC</strong>, independiente. Reparación, mantenimiento y soporte en domicilio o remoto.</div></li>
+    </ul>
+
+    <h2>Formación</h2>
+    <ul>
+      <li><strong>Ingeniería en Sistemas</strong>, Universidad Nacional de Avellaneda (UNDAV), dos años cursados.</li>
+      <li><strong>Bachiller en Economía y Gestión de las Organizaciones</strong>, CENS N.º 453.</li>
+      <li><strong>Instructor de Formación Profesional</strong>, CFP N.º 23 (en curso).</li>
+      <li><strong>CFP N.º 401:</strong> Instalador y Administrador de Redes Informáticas (2022), Montador Electricista (2021), Instalador de Sistemas Eléctricos de Energía Renovable (2021), Instalador de Sistemas Solares Térmicos (2021) y Operador de PC (2018).</li>
+      <li><strong>Técnico en Reparación, Armado y Mantenimiento de PC</strong>, Centro Cultural Rojas, UBA (2007).</li>
+    </ul>
+
     <h2>Por qué publico el paso a paso</h2>
     <p>Porque la mejor forma de aprender IA aplicada es ver proyectos reales por dentro, con sus decisiones y sus errores. Las guías son gratis. Si querés ir más rápido y con acompañamiento, para eso va a estar el campus.</p>
   </div>

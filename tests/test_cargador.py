@@ -59,15 +59,30 @@ def test_lee_proyecto_y_guia(tmp_path):
     assert p.nombre == "Demo" and p.categoria_nombre == "Software de escritorio"
     assert "<code>código</code>" in p.html
     assert p.toc[0]["id"] == "qué-es"
-    assert p.descarga == "https://github.com/ejemplo/Demo/releases/latest"
+    assert p.descargas == ()
     g = c.guia("guia-demo")
     assert g.fecha == dt.date(2026, 10, 1) and g.minutos_lectura == 1
     assert c.guias_de("demo") == [g]
 
 
-def test_solo_el_software_de_escritorio_tiene_descarga(tmp_path):
-    servicio = PROYECTO.replace("categoria: escritorio", "categoria: servicios")
-    assert leer_contenido(_escribir(tmp_path, {"demo": servicio})).proyecto("demo").descarga == ""
+def test_descargas_de_github_releases_o_url_propia(tmp_path):
+    con_descargas = PROYECTO.replace(
+        "stack: [Python]\n",
+        "stack: [Python]\ndescargas:\n"
+        "  - {nombre: Instalador, archivo: Demo_Setup.exe, tamano: 1 GB}\n"
+        "  - {nombre: Portable, archivo: /descargas/demo.zip}\n",
+    )
+    p = leer_contenido(_escribir(tmp_path, {"demo": con_descargas})).proyecto("demo")
+    assert [(d.nombre, d.url, d.tamano) for d in p.descargas] == [
+        ("Instalador", "https://github.com/ejemplo/Demo/releases/latest/download/Demo_Setup.exe", "1 GB"),
+        ("Portable", "/descargas/demo.zip", ""),
+    ]
+
+
+def test_incluido_en_tiene_que_existir(tmp_path):
+    otro = PROYECTO.replace("stack: [Python]\n", "stack: [Python]\nincluido_en: no-existe\n")
+    with pytest.raises(ContenidoInvalido, match="'incluido_en' apunta a 'no-existe'"):
+        leer_contenido(_escribir(tmp_path, {"demo": otro}))
 
 
 def test_los_borradores_no_se_publican(tmp_path):
@@ -87,6 +102,11 @@ def test_los_borradores_no_se_publican(tmp_path):
             "el proyecto 'otro' no existe",
         ),
         ({"demo": PROYECTO}, {"g": GUIA.replace("2026-10-01", "ayer")}, "'fecha' tiene que ser una fecha"),
+        (
+            {"demo": PROYECTO.replace("stack: [Python]\n", "stack: [Python]\ndescargas:\n  - {nombre: X}\n")},
+            {},
+            "necesita 'nombre' y 'archivo'",
+        ),
     ],
 )
 def test_errores_de_contenido_dicen_que_corregir(tmp_path, proyectos, guias, mensaje):

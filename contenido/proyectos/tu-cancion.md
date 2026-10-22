@@ -7,6 +7,7 @@ destacado: true
 etiqueta: letra + música a medida
 resumen: Canciones personalizadas para regalar. La letra parte de la historia real de la persona y la música sale en el estilo que elijas.
 stack: [LLM, Suno, Python, FFmpeg, FastAPI, Mercado Pago]
+instagram: tucancion.com.ar
 web: https://tucancion.com.ar
 repo: https://github.com/serranicolasp2-sudo/TuTiendita-Produccion
 datos:

@@ -42,7 +42,7 @@ Contiene:
 
 ## 🌐 Identidad de Marca
 - **Web Oficial:** [tutiendita-ia.store](https://tutiendita-ia.store)  
-- **Titular:** Nicolás Serrano
+- **Titular:** Nicolás Serra
 
 ---
 

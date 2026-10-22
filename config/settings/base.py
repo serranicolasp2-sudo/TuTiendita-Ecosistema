@@ -17,7 +17,7 @@ DEBUG = env.bool("DEBUG", default=False)
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["localhost", "127.0.0.1"])
 CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS", default=[])
 SITE_URL = env("SITE_URL", default="http://localhost:8000")
-TITULAR = "Nicolás Serrano"
+TITULAR = "Nicolás Serra"
 
 INSTALLED_APPS = [
     "django.contrib.staticfiles",
@@ -73,12 +73,13 @@ STORAGES = {
 # Contenido del sitio: proyectos y guías en Markdown con encabezado YAML (ver contenido/LEEME.md)
 CONTENIDO_DIR = Path(env("CONTENIDO_DIR", default=str(BASE_DIR / "contenido")))
 
-# Datos de contacto: los que queden vacíos no se muestran en el sitio.
+# Datos de contacto: los que queden vacíos no se muestran en el sitio. Los públicos tienen valor por defecto
+# (con "or": una línea vacía en /etc/tutiendita-ia/env no los borra); teléfono y mail, solo si se cargan.
 CONTACTO = {
     "whatsapp": env("CONTACTO_WHATSAPP", default=""),  # solo dígitos, con código de país: 5491112345678
-    "instagram": env("CONTACTO_INSTAGRAM", default=""),  # usuario sin @
+    "instagram": env("CONTACTO_INSTAGRAM", default="") or "_nicochapu",  # usuario sin @
     "email": env("CONTACTO_EMAIL", default=""),
-    "github": env("CONTACTO_GITHUB", default="https://github.com/serranicolasp2-sudo"),
+    "github": env("CONTACTO_GITHUB", default="") or "https://github.com/serranicolasp2-sudo",
 }
 
 # Seguridad común

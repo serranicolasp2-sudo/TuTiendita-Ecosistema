@@ -38,6 +38,7 @@ Cubre los cuatro cuellos de botella más comunes al producir video para redes:
 - **Empaquetado**: cada app se compila con PyInstaller en un `.exe` sin ventana de consola, con FFmpeg dentro de la carpeta `_internal`.
 - **Instalador**: un script de Inno Setup (`OmniSuite_Installer.iss`) con casillas para elegir qué apps instalar. Crea el grupo en el menú Inicio y los accesos directos.
 - **Portable**: `ensamblar_suite_portable.py` arma un `.zip` que funciona sin permisos de administrador.
+- **Lanzador tolerante**: el botón "Lanzar" busca el `.exe` de cada app; si no está (por ejemplo, trabajando con el código fuente), usa su `.bat` o su script de Python.
 
 ## Por qué offline
 

@@ -4,6 +4,8 @@ Todo lo que se publica en **Proyectos** y **Guías** sale de esta carpeta. Cada 
 
 Antes de subir un cambio, corré `python manage.py validar_contenido`: si falta un campo o hay un error, dice en qué archivo y qué corregir. El deploy también lo corre y no publica si falla.
 
+Cuando cambien las descargas (release nueva), corré `python manage.py validar_contenido --descargas`: baja el primer byte de cada archivo y muestra su tamaño real, así ningún botón queda roto.
+
 ## Proyecto (`proyectos/<nombre>.md`)
 
 ```yaml
@@ -18,8 +20,17 @@ orden: 20                                  # opcional: menor = aparece antes
 destacado: true                            # opcional: aparece en el inicio
 version: "1.0"                             # opcional (entre comillas)
 plataforma: Windows 10 / 11 (64 bits)      # opcional
-repo: https://github.com/...               # opcional. En "escritorio" activa el botón de descarga (GitHub Releases)
+repo: https://github.com/...               # opcional: botón "Ver el código"
 web: https://...                           # opcional: botón "Visitar"
+instagram: tucancion.com.ar                # opcional: botón de Instagram (usuario sin @)
+descargas:                                 # opcional: un botón por archivo
+  - nombre: Instalador
+    archivo: Transcriptor_Instalador_1.0.exe   # nombre del archivo en la última release de GitHub del repo
+    tamano: 1,7 GB                           #   (o una URL completa / ruta /descargas/... para otro servidor)
+  - nombre: Portable
+    archivo: Transcriptor_Portable.zip
+    tamano: 2,0 GB
+incluido_en: omnisuite-studio              # opcional: "Se descarga con …" (apps que vienen dentro de otra)
 icono: img/proyectos/transcriptor_256.png  # opcional: ruta dentro de static/
 datos:                                     # opcional: filas de la ficha técnica
   Modelo de voz: Whisper large-v3-turbo

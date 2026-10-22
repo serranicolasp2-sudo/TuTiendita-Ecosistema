@@ -9,6 +9,7 @@ resumen: Lleva videos de 24 o 30 FPS a 60 o 120 FPS generando cuadros intermedio
 plataforma: Windows 10 / 11 (64 bits)
 stack: [Python, FFmpeg, CustomTkinter, PyInstaller]
 repo: https://github.com/serranicolasp2-sudo/OmniFlow-FPS-Booster
+incluido_en: omnisuite-studio
 icono: img/proyectos/omniflow_256.png
 datos:
   Destinos: 48, 50, 60 y 120 FPS
@@ -22,7 +23,7 @@ Los videos a 24 o 30 cuadros por segundo "tironean" en los paneos y en la acció
 
 Es especialmente útil con videos generados por IA, que casi siempre salen a 24 FPS.
 
-## Los cuatro métodos
+## Los cinco métodos
 
 Cada método de la app es un filtro distinto de FFmpeg, elegido según el tipo de material:
 
@@ -32,8 +33,13 @@ Cada método de la app es un filtro distinto de FFmpeg, elegido según el tipo d
 | Anime y 2D | `framerate` con un umbral de corte más sensible | Animación con dibujos "a 2" o "a 3" |
 | Motion Blend | `minterpolate` en modo `blend` | Paneos rápidos que tironean |
 | Cadencia pura | `fps` | Duplicar cuadros sin inventar nada |
+| Estimación de movimiento (MCI) | `minterpolate` con `mi_mode=mci` | Un plano clave donde la mezcla se nota. Calcula vectores de movimiento: es lento |
 
 La detección de cortes (`scene`) es clave: evita que la herramienta mezcle el último cuadro de una escena con el primero de la siguiente.
+
+Los cuatro primeros **mezclan** cuadros vecinos, que es rápido y nunca deforma la imagen. El quinto **calcula** dónde está cada parte de la imagen en el cuadro intermedio: con objetos rápidos se ve más natural, pero tarda mucho más y, con movimientos complejos (manos, pelo, agua), puede dejar zonas "derretidas".
+
+Acepta `.mp4`, `.mov`, `.mkv`, `.avi`, `.webm`, `.flv`, `.ts`, `.m4v`, `.mpg`, `.mpeg` y `.wmv`, y procesa carpetas enteras.
 
 ## Paso a paso
 

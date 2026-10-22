@@ -7,6 +7,7 @@ destacado: true
 etiqueta: real-esrgan x4 · 300 dpi
 resumen: Recupera y colorea fotos familiares con IA y las lleva a calidad de impresión, con opción de cuadro.
 stack: [Real-ESRGAN (ncnn-vulkan), Python, Pillow, FastAPI, Mercado Pago]
+instagram: restauraciondefotos
 web: https://restauraciondefotos.com.ar
 repo: https://github.com/serranicolasp2-sudo/TuTiendita-Produccion
 datos:
