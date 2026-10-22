@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+{% block titulo %}{{ proyecto.nombre }} · Tu Tiendita IA{% endblock %}
+{% block descripcion %}{{ proyecto.resumen }}{% endblock %}
+{% block og_titulo %}{{ proyecto.nombre }}{% endblock %}
+{% block og_descripcion %}{{ proyecto.resumen }}{% endblock %}
+{% block contenido %}
+<article>
+  <header class="encabezado">
+    <div class="ancho encabezado__ficha">
+      <div>
+        <p class="miga"><a href="{% url 'proyectos' %}">Proyectos</a> / {{ proyecto.categoria_nombre }}</p>
+        <h1>{{ proyecto.nombre }}</h1>
+        <p class="encabezado__bajada">{{ proyecto.resumen }}</p>
+        <div class="acciones">
+          {% if proyecto.descarga %}<a class="boton" href="{{ proyecto.descarga }}" rel="noopener">Descargar para Windows</a>{% endif %}
+          {% if proyecto.web %}<a class="boton" href="{{ proyecto.web }}" rel="noopener">Visitar {{ proyecto.web|cut:"https://" }}</a>{% endif %}
+          {% if proyecto.repo %}<a class="boton boton--borde" href="{{ proyecto.repo }}" rel="noopener">Ver el código</a>{% endif %}
+        </div>
+        {% if proyecto.descarga %}<p class="nota">Instalador <code>.exe</code> o versión portable <code>.zip</code>, sin permisos de administrador. Desde GitHub Releases.</p>{% endif %}
+      </div>
+      {% if proyecto.icono %}<img class="encabezado__icono" src="{% static proyecto.icono %}" alt="" width="128" height="128">{% endif %}
+    </div>
+  </header>
+
+  <div class="ancho ficha">
+    <aside class="ficha__datos" aria-label="Ficha técnica">
+      <span class="cinta">{{ proyecto.etiqueta }}</span>
+      <dl>
+        <dt>Estado</dt><dd><span class="estado estado--{{ proyecto.estado }}">{{ proyecto.estado_nombre }}</span>{% if proyecto.version %} · v{{ proyecto.version }}{% endif %}</dd>
+        {% if proyecto.plataforma %}<dt>Plataforma</dt><dd>{{ proyecto.plataforma }}</dd>{% endif %}
+        {% for clave, valor in proyecto.datos %}<dt>{{ clave }}</dt><dd>{{ valor }}</dd>{% endfor %}
+        <dt>Hecho con</dt><dd><ul class="chips">{% for t in proyecto.stack %}<li>{{ t }}</li>{% endfor %}</ul></dd>
+      </dl>
+    </aside>
+    <div class="prosa">
+      {{ proyecto.html|safe }}
+      {% if guias %}
+      <section class="relacionadas">
+        <h2>Guías de este proyecto</h2>
+        <ul class="lista-guias">{% for g in guias %}{% include "contenido/_fila_guia.html" with proyecto=None %}{% endfor %}</ul>
+      </section>
+      {% endif %}
+    </div>
+  </div>
+</article>
+{% endblock %}

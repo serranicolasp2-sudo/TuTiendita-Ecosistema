@@ -75,7 +75,7 @@ Plataforma comercial y operativa de personalización con IA:
 Proyectos reales de gran escala en producción educativa:
 
 - **[CFP-401-Avellaneda](https://github.com/serranicolasp2-sudo/CFP-401-Avellaneda)**: Portal institucional oficial de la escuela ([cfp401avellaneda.com.ar](https://cfp401avellaneda.com.ar)), panel CMS administrativo con autenticación Bcrypt y generador modular de flyers para redes.
-- **[Campus-Virtual-Semi](https://github.com/serranicolasp2-sudo/Campus-Virtual-Semi)**: Campus virtual propio (no Moodle) desarrollado en Django para el secundario de adultos a distancia. Gestión de trayectos, lectura de PDFs, foros, entregas de actividades y corrección docente (suite integral de 795 tests automatizados con 90.4% de cobertura de código).
+- **[Campus-Virtual-Semi](https://github.com/serranicolasp2-sudo/Campus-Virtual-Semi)**: Campus virtual propio (no Moodle) desarrollado en Django para el secundario de adultos a distancia. Gestión de trayectos, lectura de PDFs, foros, entregas de actividades y corrección docente (suite integral de 795 tests automatizados con 90.4% de cobertura de código al 2026-10-22).
 
 ---
 

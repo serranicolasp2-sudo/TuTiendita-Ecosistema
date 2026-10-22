@@ -1,0 +1,7 @@
+<li class="guia-fila">
+  <a href="{% url 'guia' g.slug %}">
+    <span class="guia-fila__titulo">{{ g.titulo }}</span>
+    <span class="guia-fila__resumen">{{ g.resumen }}</span>
+    <span class="guia-fila__meta">{% if proyecto %}{{ proyecto.nombre }} · {% endif %}{{ g.nivel_nombre }} · {{ g.minutos_lectura }} min de lectura{% if g.duracion %} · {{ g.duracion }} de práctica{% endif %}</span>
+  </a>
+</li>

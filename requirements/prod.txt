@@ -1,0 +1,3 @@
+-r base.txt
+gunicorn==26.2.0
+# Etapa 2 (foro) y 3 (campus) pasan a PostgreSQL: psycopg[binary]==3.3.6

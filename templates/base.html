@@ -1,0 +1,60 @@
+{% load static %}<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block titulo %}Tu Tiendita IA{% endblock %}</title>
+  <meta name="description" content="{% block descripcion %}Herramientas con IA para creadores, servicios a medida y guías paso a paso para replicar cada proyecto.{% endblock %}">
+  <meta name="theme-color" content="#0E1117">
+  <meta property="og:site_name" content="Tu Tiendita IA">
+  <meta property="og:title" content="{% block og_titulo %}Tu Tiendita IA{% endblock %}">
+  <meta property="og:description" content="{% block og_descripcion %}Herramientas con IA para creadores y guías paso a paso.{% endblock %}">
+  <meta property="og:type" content="{% block og_tipo %}website{% endblock %}">
+  <meta property="og:url" content="{{ site_url }}{{ request.path }}">
+  <link rel="canonical" href="{{ site_url }}{{ request.path }}">
+  <link rel="icon" href="{% static 'img/favicon.svg' %}" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="Guías de Tu Tiendita IA" href="{% url 'guias_feed' %}">
+  <link rel="preload" href="{% static 'fuentes/bricolage.woff2' %}" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{% static 'css/sitio.css' %}">
+  <link rel="stylesheet" href="{% static 'css/codigo.css' %}">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Ir al contenido</a>
+  <header class="cabecera">
+    <div class="ancho cabecera__fila">
+      <a class="marca" href="{% url 'inicio' %}" aria-label="Tu Tiendita IA, inicio">
+        <span class="marca__punto" aria-hidden="true"></span>Tu Tiendita <b>IA</b>
+      </a>
+      <nav aria-label="Principal">
+        <ul class="menu">
+          {% with seccion=request.resolver_match.url_name %}
+          <li><a href="{% url 'proyectos' %}"{% if seccion == 'proyectos' or seccion == 'proyecto' %} aria-current="page"{% endif %}>Proyectos</a></li>
+          <li><a href="{% url 'guias' %}"{% if seccion == 'guias' or seccion == 'guia' %} aria-current="page"{% endif %}>Guías</a></li>
+          <li><a href="{% url 'foro' %}"{% if seccion == 'foro' %} aria-current="page"{% endif %}>Foro</a></li>
+          <li><a href="{% url 'campus' %}"{% if seccion == 'campus' %} aria-current="page"{% endif %}>Campus</a></li>
+          <li><a href="{% url 'sobre_mi' %}"{% if seccion == 'sobre_mi' %} aria-current="page"{% endif %}>Sobre mí</a></li>
+          {% endwith %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">{% block contenido %}{% endblock %}</main>
+
+  <footer class="pie">
+    <div class="ancho pie__fila">
+      <div>
+        <p class="pie__marca">Tu Tiendita <b>IA</b></p>
+        <p class="pie__texto">Herramientas, servicios y guías de {{ titular }}. Avellaneda, Buenos Aires.</p>
+      </div>
+      <ul class="pie__enlaces">
+        {% if contacto.whatsapp %}<li><a href="https://wa.me/{{ contacto.whatsapp }}" rel="noopener">WhatsApp</a></li>{% endif %}
+        {% if contacto.instagram %}<li><a href="https://instagram.com/{{ contacto.instagram }}" rel="noopener">Instagram</a></li>{% endif %}
+        {% if contacto.email %}<li><a href="mailto:{{ contacto.email }}">{{ contacto.email }}</a></li>{% endif %}
+        {% if contacto.github %}<li><a href="{{ contacto.github }}" rel="noopener">GitHub</a></li>{% endif %}
+        <li><a href="{% url 'guias_feed' %}">RSS de las guías</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block titulo %}Proyectos · Tu Tiendita IA{% endblock %}
+{% block descripcion %}Software de escritorio, servicios con IA y desarrollos a medida: qué hace cada proyecto y cómo está construido.{% endblock %}
+{% block contenido %}
+<section class="encabezado">
+  <div class="ancho">
+    <h1>Proyectos</h1>
+    <p class="encabezado__bajada">Todo lo que tengo en marcha: qué resuelve cada cosa, con qué está hecha y en qué estado está.</p>
+  </div>
+</section>
+{% for nombre, proyectos in grupos %}
+<section class="seccion">
+  <div class="ancho">
+    <h2>{{ nombre }}</h2>
+    <div class="grilla">
+      {% for p in proyectos %}{% include "contenido/_tarjeta_proyecto.html" %}{% endfor %}
+    </div>
+  </div>
+</section>
+{% endfor %}
+{% endblock %}

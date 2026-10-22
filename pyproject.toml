@@ -1,0 +1,30 @@
+[project]
+name = "tutiendita-ia"
+version = "0.1.0"
+description = "Sitio oficial de Tu Tiendita IA (tutiendita-ia.store): portfolio, guías paso a paso, foro y campus"
+requires-python = ">=3.10"
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+extend-exclude = ["**/migrations/*", ".venv", "assets", "docs", "contenido"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "DJ", "S"]
+ignore = [
+  "S308",   # mark_safe: el HTML sale de Markdown escrito por nosotros en contenido/ (contenido confiable)
+  "E501",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101"]
+"config/settings/*" = ["F405"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["apps", "config"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "config.settings.test"
+python_files = ["test_*.py"]
+testpaths = ["tests"]
+addopts = "--strict-markers -q"
