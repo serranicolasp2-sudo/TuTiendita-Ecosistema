@@ -215,3 +215,12 @@ code { font-family: var(--f-mono); font-size: .9em; background: var(--superficie
 .prosa .trayectoria li::marker { content: none; }
 .trayectoria__fecha { color: var(--plata); font-size: .9rem; font-variant-numeric: tabular-nums; padding-top: 2px; }
 @media (max-width: 520px) { .prosa .trayectoria li { grid-template-columns: minmax(0, 1fr); gap: 2px; } }
+
+/* ── Retrato (Sobre mí): la foto "pegada" con la cinta de la marca ─ */
+.retrato { position: relative; margin: 8px 8px 0 0; flex: none; width: 300px; }
+.retrato img { display: block; width: 100%; height: auto; border-radius: var(--radio); }
+.retrato .cinta { position: absolute; top: -14px; left: 50%; transform: translateX(-50%) rotate(-3deg); font-size: 1.5rem; }
+@media (max-width: 640px) {
+  .encabezado__ficha--retrato { flex-direction: column-reverse; align-items: flex-start; gap: 28px; }
+  .retrato { width: 200px; margin-top: 14px; }
+}

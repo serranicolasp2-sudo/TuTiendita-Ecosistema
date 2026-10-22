@@ -1,11 +1,22 @@
 {% extends "base.html" %}
+{% load static %}
 {% block titulo %}Sobre mí · Tu Tiendita IA{% endblock %}
 {% block descripcion %}Nicolás Serra: docente de alfabetización digital desde 2017, técnico en sistemas y diseñador. Construye herramientas con IA y enseña cómo hacerlas.{% endblock %}
 {% block contenido %}
 <section class="encabezado">
-  <div class="ancho">
-    <h1>Sobre mí</h1>
-    <p class="encabezado__bajada">Soy {{ titular }}. Doy clases de alfabetización digital desde 2017, reparo y armo computadoras desde 2009 y hoy construyo herramientas con inteligencia artificial para problemas concretos. Acá cuento cómo las hago.</p>
+  <div class="ancho encabezado__ficha encabezado__ficha--retrato">
+    <div>
+      <h1>Sobre mí</h1>
+      <p class="encabezado__bajada">Soy {{ titular }}. Doy clases de alfabetización digital desde 2017, reparo y armo computadoras desde 2009 y hoy construyo herramientas con inteligencia artificial para problemas concretos. Acá cuento cómo las hago.</p>
+      <div class="acciones">
+        {% if contacto.whatsapp %}<a class="boton" href="https://wa.me/{{ contacto.whatsapp }}" rel="noopener">Escribime por WhatsApp</a>{% endif %}
+        {% if contacto.email %}<a class="boton boton--borde" href="mailto:{{ contacto.email }}">Mandame un mail</a>{% endif %}
+      </div>
+    </div>
+    <figure class="retrato">
+      <img src="{% static 'img/nicolas-serra.webp' %}" srcset="{% static 'img/nicolas-serra-chico.webp' %} 320w, {% static 'img/nicolas-serra.webp' %} 640w" sizes="(max-width: 640px) 200px, 300px" width="320" height="400" alt="Foto de Nicolás Serra">
+      <figcaption class="cinta">ese soy yo</figcaption>
+    </figure>
   </div>
 </section>
 <div class="ancho ficha">
@@ -15,6 +26,8 @@
       <dt>Docente</dt><dd>Desde 2017</dd>
       <dt>Técnico</dt><dd>Desde 2009</dd>
       <dt>Proyectos</dt><dd>{{ proyectos|length }}</dd>
+      {% if contacto.whatsapp %}<dt>WhatsApp</dt><dd><a href="https://wa.me/{{ contacto.whatsapp }}" rel="noopener">{{ contacto.whatsapp_visible }}</a></dd>{% endif %}
+      {% if contacto.email %}<dt>Mail</dt><dd><a href="mailto:{{ contacto.email }}">{{ contacto.email }}</a></dd>{% endif %}
       {% if contacto.instagram %}<dt>Instagram</dt><dd><a href="https://instagram.com/{{ contacto.instagram }}" rel="noopener">@{{ contacto.instagram }}</a></dd>{% endif %}
       {% if contacto.github %}<dt>Código</dt><dd><a href="{{ contacto.github }}" rel="noopener">GitHub</a></dd>{% endif %}
     </dl>

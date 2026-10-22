@@ -73,12 +73,13 @@ STORAGES = {
 # Contenido del sitio: proyectos y guías en Markdown con encabezado YAML (ver contenido/LEEME.md)
 CONTENIDO_DIR = Path(env("CONTENIDO_DIR", default=str(BASE_DIR / "contenido")))
 
-# Datos de contacto: los que queden vacíos no se muestran en el sitio. Los públicos tienen valor por defecto
-# (con "or": una línea vacía en /etc/tutiendita-ia/env no los borra); teléfono y mail, solo si se cargan.
+# Datos de contacto públicos (Nicolás autorizó publicarlos). El env los puede cambiar; una línea vacía en
+# /etc/tutiendita-ia/env no los borra gracias al "or".
 CONTACTO = {
-    "whatsapp": env("CONTACTO_WHATSAPP", default=""),  # solo dígitos, con código de país: 5491112345678
+    "whatsapp": env("CONTACTO_WHATSAPP", default="") or "5491166912647",  # solo dígitos, con 54 9
+    "whatsapp_visible": env("CONTACTO_WHATSAPP_VISIBLE", default="") or "11 6691-2647",
     "instagram": env("CONTACTO_INSTAGRAM", default="") or "_nicochapu",  # usuario sin @
-    "email": env("CONTACTO_EMAIL", default=""),
+    "email": env("CONTACTO_EMAIL", default="") or "serranicolas.p@gmail.com",
     "github": env("CONTACTO_GITHUB", default="") or "https://github.com/serranicolasp2-sudo",
 }
 

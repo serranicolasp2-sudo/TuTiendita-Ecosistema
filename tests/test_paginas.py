@@ -67,7 +67,10 @@ def test_cabeceras_de_seguridad(client):
 
 def test_contacto_vacio_no_se_muestra(client, settings):
     settings.CONTACTO = {**settings.CONTACTO, "whatsapp": ""}
-    assert "wa.me" not in client.get("/").content.decode()
+    assert (
+        "wa.me" not in client.get("/").content.decode()
+        and "wa.me" not in client.get("/sobre-mi/").content.decode()
+    )
     settings.CONTACTO = {**settings.CONTACTO, "whatsapp": "5491112345678"}
     assert "https://wa.me/5491112345678" in client.get("/").content.decode()
 
@@ -83,10 +86,19 @@ def test_favicon_ico_redirige_al_svg(client):
 
 
 def test_ninguna_pagina_publica_datos_personales_del_cv(client):
-    """El CV trae DNI, fecha de nacimiento, dirección y teléfonos: nada de eso va al sitio."""
-    sensibles = ["35.630.975", "35630975", "24/01/1991", "Debenedetti", "6691", "3077-3769", "5870-1082"]
+    """El CV trae DNI, fecha de nacimiento, dirección y teléfonos de referencias: nada de eso va al sitio.
+    (El WhatsApp y el mail de Nicolás sí: los autorizó él.)"""
+    sensibles = ["35.630.975", "35630975", "24/01/1991", "Debenedetti", "Sarandí", "3077-3769", "5870-1082"]
     urls = ["/", "/sobre-mi/", "/proyectos/", "/guias/", "/foro/", "/campus/"]
     urls += [f"/proyectos/{p.slug}/" for p in contenido().proyectos]
     for url in urls:
         html = client.get(url).content.decode()
         assert not [s for s in sensibles if s in html], url
+
+
+def test_contacto_y_retrato_en_sobre_mi(client):
+    html = client.get("/sobre-mi/").content.decode()
+    assert "https://wa.me/5491166912647" in html and "mailto:serranicolas.p@gmail.com" in html
+    assert "img/nicolas-serra.webp" in html and 'alt="Foto de Nicolás Serra"' in html
+    campus = client.get("/campus/").content.decode()
+    assert "wa.me/5491166912647?text=Hola%20Nico" in campus

@@ -23,5 +23,10 @@
     </table>
   </div>
   <p>Los primeros cursos van a salir de los proyectos que ya están andando. Mientras tanto, empezá por las <a href="{% url 'guias' %}">guías</a>.</p>
+  {% if contacto.whatsapp %}
+  <div class="acciones">
+    <a class="boton" href="https://wa.me/{{ contacto.whatsapp }}?text={{ 'Hola Nico, quiero enterarme cuando abra el campus de Tu Tiendita IA.'|urlencode }}" rel="noopener">Avisame cuando abra</a>
+  </div>
+  {% endif %}
 </div>
 {% endblock %}
