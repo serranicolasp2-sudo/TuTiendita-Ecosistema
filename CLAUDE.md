@@ -58,14 +58,14 @@ Aplicaciones de escritorio para Windows, 100% offline, empaquetadas en instalado
 
 - **[OmniSuite Studio](https://github.com/serranicolasp2-sudo/OmniSuite-Studio)**: Hub central e instalador Todo-en-Uno multiapp. Permite instalar o lanzar cualquiera de las herramientas con un solo clic.
 - **[OmniBoost Studio](https://github.com/serranicolasp2-sudo/OmniBoost-Studio)**: Optimizador y compresor de video inteligente mediante FFmpeg (presets para YouTube, Reels/TikTok, compresión sin pérdida perceptual).
-- **[OmniFlow FPS Booster](https://github.com/serranicolasp2-sudo/OmniFlow-FPS-Booster)**: Interpolador de fotogramas a 60 FPS fluidos con interpolación de movimiento por vectores de movimiento.
+- **[OmniFlow FPS Booster](https://github.com/serranicolasp2-sudo/OmniFlow-FPS-Booster)**: Multiplicador de fluidez a 60 / 120 FPS mediante interpolación temporal adaptativa con detección de cortes de plano y método de estimación vectorial opcional.
 - **[OmniScale Studio](https://github.com/serranicolasp2-sudo/OmniScale-Studio)**: Escalador inteligente de video a 1080p y 4K con filtros avanzados de nitidez y preservación de detalles.
-- **[Transcriptor Local](https://github.com/serranicolasp2-sudo/Transcriptor-Local)**: Transcriptor de audio/video y diarización de hablantes completamente offline con Whisper + Pyannote, sin costo por minuto ni envío de datos a servidores externos.
+- **[Transcriptor Local](https://github.com/serranicolasp2-sudo/Transcriptor-Local)**: Transcriptor de audio/video y diarización de hablantes completamente offline con Whisper + Pyannote, arquitectura CPU INT8 universal y módulos opcionales descargables para GPU (CUDA y DirectML).
 
 ### 2. E-Commerce, Bots & Servicios con IA (RegalosIA)
 Plataforma comercial y operativa de personalización con IA:
 
-- **[TuTiendita-Tienda](https://github.com/serranicolasp2-sudo/TuTiendita-Tienda)**: Backend en FastAPI, integración de pagos con Mercado Pago (checkout pro y webhooks), base de datos SQLite y bot autónomo de procesamiento de pedidos.
+- **[TuTiendita-Tienda](https://github.com/serranicolasp2-sudo/TuTiendita-Tienda)**: Backend en FastAPI, integración REST directa con Mercado Pago (webhooks con verificación criptográfica HMAC-SHA256), base de datos transaccional SQLite3 y orquestación desatendida de IA por CLI.
 - **[TuTiendita-Centralita](https://github.com/serranicolasp2-sudo/TuTiendita-Centralita)**: Servicio local y panel de control de escritorio en tiempo real para coordinar la producción de pedidos locales (`C:\Pedidos`).
 - **[TuTiendita-Web](https://github.com/serranicolasp2-sudo/TuTiendita-Web)**: Landings comerciales responsive mobile-first para `tucancion.com.ar` y `restauraciondefotos.com.ar` con reproductores de audio y comparadores antes/después.
 - **[TuTiendita-Produccion](https://github.com/serranicolasp2-sudo/TuTiendita-Produccion)**: Pipeline de super-resolución fotográfica con Real-ESRGAN x4 (ncnn-vulkan) y grabador de muestras musicales de 1 minuto para Suno.
@@ -75,7 +75,7 @@ Plataforma comercial y operativa de personalización con IA:
 Proyectos reales de gran escala en producción educativa:
 
 - **[CFP-401-Avellaneda](https://github.com/serranicolasp2-sudo/CFP-401-Avellaneda)**: Portal institucional oficial de la escuela ([cfp401avellaneda.com.ar](https://cfp401avellaneda.com.ar)), panel CMS administrativo con autenticación Bcrypt y generador modular de flyers para redes.
-- **[Campus-Virtual-Semi](https://github.com/serranicolasp2-sudo/Campus-Virtual-Semi)**: Campus virtual propio (no Moodle) desarrollado en Django para el secundario de adultos a distancia. Gestión de trayectos, lectura de PDFs, foros, entregas de actividades y corrección docente (398 tests unitarios).
+- **[Campus-Virtual-Semi](https://github.com/serranicolasp2-sudo/Campus-Virtual-Semi)**: Campus virtual propio (no Moodle) desarrollado en Django para el secundario de adultos a distancia. Gestión de trayectos, lectura de PDFs, foros, entregas de actividades y corrección docente (suite integral de 795 tests automatizados con 90.4% de cobertura de código).
 
 ---
 
