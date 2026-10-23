@@ -7,6 +7,7 @@ etiqueta: panel local
 resumen: Un panel que corre en la computadora de trabajo y muestra en tiempo real qué pedidos entran, cuáles están en proceso y cuáles están listos.
 stack: [Python, FastAPI, HTML, JavaScript]
 repo: https://github.com/serranicolasp2-sudo/TuTiendita-Centralita
+icono: img/proyectos/tutiendita-centralita_256.png
 datos:
   Corre en: la propia PC, sin exponerse a internet
   Módulos: archivos, audio, clientes, costos, retoques y sistema

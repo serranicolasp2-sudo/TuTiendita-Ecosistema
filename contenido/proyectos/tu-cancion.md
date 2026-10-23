@@ -10,6 +10,7 @@ stack: [LLM, Suno, Python, FFmpeg, FastAPI, Mercado Pago]
 instagram: tucancion.com.ar
 web: https://tucancion.com.ar
 repo: https://github.com/serranicolasp2-sudo/TuTiendita-Produccion
+icono: img/proyectos/tu-cancion_256.png
 datos:
   Estilos: balada, cumbia, rock y bolero, entre otros
   Vista previa: 1 minuto con fundido antes de aprobar

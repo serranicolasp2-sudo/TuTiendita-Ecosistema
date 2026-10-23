@@ -61,7 +61,7 @@ def test_sitemap_robots_feed_y_salud(client):
     assert "/proyectos/transcriptor-local/" in sitemap and "/guias/videos-a-60-fps-con-ffmpeg/" in sitemap
     assert "Sitemap: http://testserver/sitemap.xml" in client.get("/robots.txt").content.decode()
     assert "Videos a 60 FPS con FFmpeg" in client.get("/guias/feed/").content.decode()
-    assert client.get("/salud/").json() == {"status": "ok", "proyectos": 11, "guias": 2}
+    assert client.get("/salud/").json() == {"status": "ok", "proyectos": 12, "guias": 2}
 
 
 def test_cabeceras_de_seguridad(client):
@@ -83,7 +83,7 @@ def test_contacto_vacio_no_se_muestra(client, settings):
 
 def test_comando_validar_contenido(capsys):
     call_command("validar_contenido")
-    assert "Contenido OK: 11 proyectos, 2 guías" in capsys.readouterr().out
+    assert "Contenido OK: 12 proyectos, 2 guías" in capsys.readouterr().out
 
 
 def test_favicon_ico_redirige_al_svg(client):

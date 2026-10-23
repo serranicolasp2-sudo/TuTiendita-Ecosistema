@@ -8,6 +8,7 @@ etiqueta: 795 tests · 90 %
 resumen: Un aula virtual hecha a medida en Django (no Moodle) para el secundario de adultos a distancia del CFP N° 401.
 stack: [Python, Django 5.2, PostgreSQL, HTMX, django-allauth, Nginx, Gunicorn]
 repo: https://github.com/serranicolasp2-sudo/Campus-Virtual-Semi
+icono: img/proyectos/campus-virtual-semi_256.png
 datos:
   Tests: 795 en verde, 90 % de cobertura
   Plan: 72 tareas en 10 etapas

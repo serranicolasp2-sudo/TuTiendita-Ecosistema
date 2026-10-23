@@ -7,6 +7,7 @@ etiqueta: pago → bot → entrega
 resumen: El backend que cobra con Mercado Pago, registra los pedidos y pone a trabajar al bot que los procesa.
 stack: [Python, FastAPI, SQLAlchemy, SQLite, Mercado Pago, Google Drive API]
 repo: https://github.com/serranicolasp2-sudo/TuTiendita-Tienda
+icono: img/proyectos/tutiendita-tienda_256.png
 datos:
   Pagos: Checkout Pro y webhooks con idempotencia
   Avisos: ntfy, WhatsApp y mail

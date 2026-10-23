@@ -9,6 +9,7 @@ resumen: El sitio oficial de la escuela, un panel para que el equipo actualice l
 stack: [React, JSX, PHP, bcrypt, Nginx]
 web: https://cfp401avellaneda.com.ar
 repo: https://github.com/serranicolasp2-sudo/CFP-401-Avellaneda
+icono: img/proyectos/cfp401-portal_256.png
 datos:
   Flyers: feed 1:1 y 4:5, historias 9:16 y afiches A4
   Panel: login con bcrypt, CSRF y límite de intentos

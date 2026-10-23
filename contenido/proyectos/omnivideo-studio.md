@@ -17,7 +17,7 @@ descargas:
   - nombre: Portable
     archivo: OmniVideo.Studio.Portable.zip
     tamano: 176 MB
-icono: img/proyectos/omnisuite_256.png
+icono: img/proyectos/omnivideo_256.png
 datos:
   Modos: Mejorar (CAS/Denoise), Fluidez (HFR 60/120 FPS), Escalar (1080p/2K/4K) y Cadena
   Aceleración: NVIDIA NVENC (P7 HQ multipass), AMD AMF, CPU (libx264)

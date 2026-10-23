@@ -10,6 +10,7 @@ stack: [Real-ESRGAN (ncnn-vulkan), Python, Pillow, FastAPI, Mercado Pago]
 instagram: restauraciondefotos
 web: https://restauraciondefotos.com.ar
 repo: https://github.com/serranicolasp2-sudo/TuTiendita-Produccion
+icono: img/proyectos/restauracion-de-fotos_256.png
 datos:
   Modos de color: a color, colores de época o blanco y negro
   Salida: hasta 4800 px a 300 DPI
