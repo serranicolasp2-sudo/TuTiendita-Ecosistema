@@ -37,6 +37,7 @@ Las dos tienen que devolver la IP del VPS **antes** del paso 5.
 ```bash
 sudo apt install -y python3-venv git
 sudo adduser --system --group --home /srv/tutiendita-ia --shell /usr/sbin/nologin tutiendita
+sudo chmod 755 /srv/tutiendita-ia
 sudo mkdir -p /srv/tutiendita-ia/releases /var/lib/tutiendita-ia /etc/tutiendita-ia
 sudo chown -R tutiendita:tutiendita /srv/tutiendita-ia /var/lib/tutiendita-ia
 sudo -u tutiendita git clone https://github.com/serranicolasp2-sudo/TuTiendita-Ecosistema.git /srv/tutiendita-ia/repo
