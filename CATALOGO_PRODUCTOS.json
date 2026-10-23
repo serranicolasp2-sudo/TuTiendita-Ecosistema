@@ -6,6 +6,18 @@
   "productos": {
     "software_escritorio": [
       {
+        "id": "omnivideo-studio",
+        "nombre": "OmniVideo Studio",
+        "version": "1.0",
+        "categoria": "Suite Audiovisual Unificada",
+        "subtitulo": "Mejora con IA, interpolación a 60 FPS y escalado a 4K en una sola pasada",
+        "descripcion": "Estación unificada con motor FFmpeg compartido y Modo Cadena single-pass. Evita recomprimir 3 veces y reduce el peso a 123 MB.",
+        "repo": "https://github.com/serranicolasp2-sudo/OmniVideo-Studio",
+        "offline": true,
+        "plataforma": "Windows 10 / 11",
+        "formatos": ["Instalador .exe (Inno Setup)", "Portable .zip"]
+      },
+      {
         "id": "omnisuite-studio",
         "nombre": "OmniSuite Studio",
         "version": "1.0",
