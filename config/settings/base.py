@@ -18,6 +18,9 @@ ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["localhost", "127.0.0.1"])
 CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS", default=[])
 SITE_URL = env("SITE_URL", default="http://localhost:8000")
 TITULAR = "Nicolás Serra"
+# Nombre legal tal como figura en ARCA (pedido del usuario, 28/10: identifica al titular para la verificación del
+# negocio en Meta). El CUIT no va acá: lleva el DNI, que este sitio no publica (test_paginas); está en las webs de venta.
+TITULAR_LEGAL = "Nicolas Pedro Serra"
 
 INSTALLED_APPS = [
     "django.contrib.staticfiles",
